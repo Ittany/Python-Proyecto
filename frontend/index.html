@@ -3,27 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestión de Inventario</title>
-    <!-- Enlace correcto al CSS -->
+    <title>Sistema de Gestión de Productos</title>
     <link rel="stylesheet" href="/styles.css">
-    <!-- Librería SweetAlert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="app-container">
+        <!-- Encabezado -->
         <header class="top-bar">
             <div class="brand">
-                <h1>Gestión de Inventario</h1>
+                <h1>Sistema de Gestión de Productos</h1>
             </div>
             <span id="api-status" class="badge-api" style="display: none;">API Conectada</span>
         </header>
 
+        <!-- NUEVO: Panel de Resumen (Precio Acumulado) -->
+        <section class="stats-grid">
+            <div class="stat-card">
+                <h3>Productos Registrados</h3>
+                <p id="stat-productos">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Unidades en Stock</h3>
+                <p id="stat-stock">0</p>
+            </div>
+            <div class="stat-card highlight">
+                <h3>Valor Acumulado Inventario</h3>
+                <p id="stat-precio">S/ 0.00</p>
+            </div>
+        </section>
+
         <main class="main-grid">
             <!-- Panel del Formulario -->
             <section class="card">
-                <h2>Nuevo Producto</h2>
-                <p class="subtitle">Ingresa los datos para registrar un ítem.</p>
+                <h2>Registrar Producto</h2>
+                <p class="subtitle">Ingresa los datos del producto (Electrónico o Libro).</p>
                 
                 <form id="product-form">
                     <div class="input-group">
@@ -46,7 +61,7 @@
                     
                     <div class="row">
                         <div class="input-group">
-                            <label>Precio (S/)</label>
+                            <label>Precio Base (S/)</label>
                             <input type="number" id="precio" step="0.01" placeholder="0.00" required>
                         </div>
                         <div class="input-group">
@@ -61,7 +76,7 @@
 
             <!-- Panel de la Tabla -->
             <section class="card">
-                <h2>Inventario Actual</h2>
+                <h2>Catálogo de Productos</h2>
                 <div class="table-responsive">
                     <table>
                         <thead>
@@ -69,7 +84,7 @@
                                 <th>ID</th>
                                 <th>Producto</th>
                                 <th>Categoría</th>
-                                <th>Precio Final</th>
+                                <th>Precio (Base / Final)</th>
                                 <th>Stock</th>
                                 <th>Acciones</th>
                             </tr>

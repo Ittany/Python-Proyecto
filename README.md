@@ -7,8 +7,9 @@
 ## FRONTEND
 
 Como se observa en frontend
-![Captura 04 - General](images/Captura04.png)
-![Captura 05 - Eliminación](images/Captura05.png)
+![Captura 04 - General](images/Captura06.png)
+![Captura 05 - Precio](images/Captura07.png)
+![Captura 05 - Eliminación](images/Captura08.png)
 
 ## Cómo ejecutar
 
