@@ -4,16 +4,18 @@
 **Estudiante:** Brittany Gonzales Quiñonez  
 **Práctica:** Semana 10 — Desarrollo Web Fullstack 
 
-## Requisitos
+## FRONTEND
 
-Python 3.11 o superior. No se necesitan librerías externas.
+Como se observa en frontend
+![Captura 04 - General](images/Captura04.png)
+![Captura 05 - Eliminación](images/Captura05.png)
 
 ## Cómo ejecutar
 
 Abrir la carpeta raíz del proyecto y ejecutar:
 
 ```bash
-python main.py
+python api.py
 ```
 
 En algunos Windows puede utilizarse `py main.py`.

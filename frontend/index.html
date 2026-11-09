@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Inventario</title>
+    <!-- Enlace correcto al CSS -->
+    <link rel="stylesheet" href="/styles.css">
+    <!-- Librería SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header class="top-bar">
+            <div class="brand">
+                <h1>Gestión de Inventario</h1>
+            </div>
+            <span id="api-status" class="badge-api" style="display: none;">API Conectada</span>
+        </header>
+
+        <main class="main-grid">
+            <!-- Panel del Formulario -->
+            <section class="card">
+                <h2>Nuevo Producto</h2>
+                <p class="subtitle">Ingresa los datos para registrar un ítem.</p>
+                
+                <form id="product-form">
+                    <div class="input-group">
+                        <label>Categoría</label>
+                        <select id="categoria" onchange="cambiarCamposExtra()">
+                            <option value="Electronico">Electrónico</option>
+                            <option value="Libro">Libro</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Nombre del Producto</label>
+                        <input type="text" id="nombre" placeholder="Ej. Monitor LG 24" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label id="label-extra">Garantía (meses)</label>
+                        <input type="number" id="extra" placeholder="Ej. 12" required>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="input-group">
+                            <label>Precio (S/)</label>
+                            <input type="number" id="precio" step="0.01" placeholder="0.00" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Stock</label>
+                            <input type="number" id="stock" placeholder="0" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-primary">Guardar Producto</button>
+                </form>
+            </section>
+
+            <!-- Panel de la Tabla -->
+            <section class="card">
+                <h2>Inventario Actual</h2>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Producto</th>
+                                <th>Categoría</th>
+                                <th>Precio Final</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="table-body">
+                            <!-- Datos cargados por JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="/app.js"></script>
+</body>
+</html>
